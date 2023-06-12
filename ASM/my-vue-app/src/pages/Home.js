@@ -5,7 +5,7 @@ import footer from '../component/Footer'
 const HomePage = () => {
 
     return `
-    ${Header}
+    ${Header()}
     <section class="page-section clearfix">
     <div class="container">
         <div class="intro">
@@ -36,7 +36,7 @@ const HomePage = () => {
         </div>
     </div>
 </section>
-${footer}
+${footer()}
     `
 }
 

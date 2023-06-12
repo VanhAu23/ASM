@@ -15,4 +15,5 @@ const add = (project) => {
 const update = (project) => { //{id: 1, title: 'abc'}
     return instance.put(`/projectList/${project.id}`, project)
 }
+
 export { getAll, remove, add, update }

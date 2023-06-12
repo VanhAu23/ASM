@@ -2,7 +2,7 @@ import footer from "../component/Footer";
 import Header from "../component/Header";
 
 const AboutPage = () => {
-    return `${Header}
+    return `${Header()}
  
 <section class="page-section about-heading">
     <div class="container">
@@ -25,7 +25,7 @@ const AboutPage = () => {
         </div>
     </div>
 </section>
-${footer}
+${footer()}
 `
 }
 

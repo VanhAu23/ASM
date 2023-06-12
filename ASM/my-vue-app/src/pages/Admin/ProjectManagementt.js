@@ -5,8 +5,6 @@ const ProjectManegementPage = () => {
     const [project, setProject] = useState([])
     useEffect(() => {
         getAll().then(({ data }) => setProject(data))
-
-
     }, []
     )
     useEffect(() => {
@@ -23,6 +21,7 @@ const ProjectManegementPage = () => {
             })
         }
     })
+
     return `
     <nbody class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -36,7 +35,7 @@ const ProjectManegementPage = () => {
             <div class="input-group">
                 <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
                     aria-describedby="btnNavbarSearch" />
-                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
+                <button class="btn btn-primary" id="btnNavbarSearch" type="submit"><i
                         class="fas fa-search"></i></button>
             </div>
         </form>
@@ -169,8 +168,8 @@ const ProjectManegementPage = () => {
             <td>${project.url}</td>
             <td>${project.repository}</td>
             <td>
-                <button class="btn-remove" data-id="${project.id}">Delete</button>
-                <a href="/admin/project/update/${project.id}"><button>Update</button></a>
+                <button class="btn-remove"  data-id="${project.id}">Delete</button>
+                <a href="/admin/project/update/${project.id}" ><button class="btn btn-primary">Update</button></a>
             </td>
           </tr>
                             `

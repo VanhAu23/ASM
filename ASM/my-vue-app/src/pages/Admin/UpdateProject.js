@@ -3,44 +3,44 @@ import { router, useEffect, useState } from "../../lib"
 
 
 const UpdateProjectPage = ({ id }) => {
-  // console.log(id);
-  const [project, setProject] = useState({}) //khai báo biến project để lưu trữ data
+    // console.log(id);
+    const [project, setProject] = useState({}) //khai báo biến project để lưu trữ data
 
-  // call api để lấy dữ liệu và gán vào biến project
-  useEffect(() => {
-    fetch(`http://localhost:3000/projectList/${id}`)
-      .then(response => response.json())
-      .then(data => setProject(data))
-  }, [])
+    // call api để lấy dữ liệu và gán vào biến project
+    useEffect(() => {
+        fetch(`http://localhost:3000/projectList/${id}`)
+            .then(response => response.json())
+            .then(data => setProject(data))
+    }, [])
 
-  // thêm mới data
-  useEffect(() => {
-    const updateForm = document.querySelector("#update-form")
-    // tìm tới form update và lắng nghe sự kiện submit
-    updateForm.addEventListener("submit", (event) => {
-      event.preventDefault() //chặn sự kiện reload trang
-      // lấy dữ liệu từ form
-      const newData = {
-        "title": document.querySelector("#title").value,
-        "description": document.querySelector("#description").value,
-        "image": document.querySelector("#image").value,
-        "url": document.querySelector("#url").value,
-        "repository": document.querySelector("#repository").value
-      }
-      // gọi api để update data
-      fetch(`http://localhost:3000/projectList/${id}`, {
-        method: "PUT", //phương thức PUT để cập nhật data
-        headers: {
-          'Content-Type': 'application/json' //định dạng dữ liệu gửi đi
-        },
-        body: JSON.stringify(newData) //chuyển đổi dữ liệu sang định dạng json
-      }).then(() => {
-        router.navigate("/admin/project")
-        //sau khi update thành công thì chuyển hướng về trang quản lý
-      })
+    // thêm mới data
+    useEffect(() => {
+        const updateForm = document.querySelector("#update-form")
+        // tìm tới form update và lắng nghe sự kiện submit
+        updateForm.addEventListener("submit", (event) => {
+            event.preventDefault() //chặn sự kiện reload trang
+            // lấy dữ liệu từ form
+            const newData = {
+                "title": document.querySelector("#title").value,
+                "description": document.querySelector("#description").value,
+                "image": document.querySelector("#image").value,
+                "url": document.querySelector("#url").value,
+                "repository": document.querySelector("#repository").value
+            }
+            // gọi api để update data
+            fetch(`http://localhost:3000/projectList/${id}`, {
+                method: "PUT", //phương thức PUT để cập nhật data
+                headers: {
+                    'Content-Type': 'application/json' //định dạng dữ liệu gửi đi
+                },
+                body: JSON.stringify(newData) //chuyển đổi dữ liệu sang định dạng json
+            }).then(() => {
+                router.navigate("/admin/project")
+                //sau khi update thành công thì chuyển hướng về trang quản lý
+            })
+        })
     })
-  })
-  return `
+    return `
   <nbody class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
@@ -163,24 +163,24 @@ const UpdateProjectPage = ({ id }) => {
                     <form id="update-form">
   <div class="form-group"  >
     <label for="exampleInputEmail1">Project Title</label>
-    <input type="text" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Name" value="${project.title}">
+    <input type="text" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Name" value="${project.title}" required>
     
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Project Description</label>
-    <input type="text" class="form-control" id="description" placeholder="Description" value="${project.description}">
+    <input type="text" class="form-control" id="description" placeholder="Description" value="${project.description}" required>
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Project Image</label>
-    <input type="text" class="form-control" id="image" placeholder="Image" value="${project.image}">
+    <input type="text" class="form-control" id="image" placeholder="Image" value="${project.image}" required>
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Project URL</label>
-    <input type="text" class="form-control" id="url" placeholder="URL" value="${project.url}">
+    <input type="text" class="form-control" id="url" placeholder="URL" value="${project.url}" required>
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Project Repository</label>
-    <input type="text" class="form-control" id="repository" placeholder="Repository" value="${project.repository}">
+    <input type="text" class="form-control" id="repository" placeholder="Repository" value="${project.repository}" required>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>                    

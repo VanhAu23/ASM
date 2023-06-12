@@ -4,7 +4,7 @@ import footer from "../component/Footer"
 
 const ProjectPage = () => {
     return `
-    ${Header}
+    ${Header()}
     
        ${projectList.map((project) => {
         return `
@@ -29,7 +29,7 @@ const ProjectPage = () => {
             </div>
         </section>`
     }).join("")}
-        ${footer}
+        ${footer()}
             `
 }
 

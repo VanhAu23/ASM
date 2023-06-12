@@ -3,7 +3,7 @@ import Header from "../component/Header"
 
 const Store = () => {
     return `
-    ${Header}
+    ${Header()}
     <section class="page-section cta">
     <div class="container">
         <div class="row">
@@ -81,7 +81,7 @@ const Store = () => {
         </div>
     </div>
 </section>
-${footer}
+${footer()}
     `
 }
 export default Store

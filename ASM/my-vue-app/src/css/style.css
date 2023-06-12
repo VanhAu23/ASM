@@ -13,6 +13,25 @@
  */
 
 
+.btn-remove {
+
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #2f170f;
+    --bs-btn-border-color: #2f170f;
+    --bs-btn-hover-color: #2f170f;
+    --bs-btn-hover-bg: #e9ecef;
+    --bs-btn-hover-border-color: #e9ecef;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #e9ecef;
+    --bs-btn-active-bg: #fff;
+    --bs-btn-active-border-color: #e9ecef;
+    --bs-btn-active-shadow: inset 0 3px 5px #e9ecef;
+    --bs-btn-disabled-color: #f8f9fa;
+    --bs-btn-disabled-bg: #e9ecef;
+    --bs-btn-disabled-border-color: #e9ecef;
+
+}
+
 
 body {
     background-image: url(../assets/img/95310.png);

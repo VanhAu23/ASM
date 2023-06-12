@@ -5,6 +5,7 @@ import { useEffect } from "../../lib";
 const AddProjectPage = () => {
     useEffect(() => {
         const addForm = document.querySelector("#add-form")
+
         addForm.addEventListener('submit', (event) => {
             event.preventDefault();
             const newProject = {
@@ -14,9 +15,14 @@ const AddProjectPage = () => {
                 "url": document.querySelector("#url").value,
                 "repository": document.querySelector("#repository").value
             }
+
             add(newProject).then(() => { router.navigate('/admin/project') })
+
         })
+
+
     })
+
     return `
     <nbody class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -135,27 +141,27 @@ const AddProjectPage = () => {
                 <div class="container-fluid px-4">
                     <h1 class="mt-4">ADD Project</h1>
                     
-                    <form id="add-form">
+                    <form id="add-form" >
   <div class="form-group"  >
     <label for="exampleInputEmail1">Project Title</label>
-    <input type="text" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Name">
+    <input type="text" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Name" required>
     
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Project Description</label>
-    <input type="text" class="form-control" id="description" placeholder="Description">
+    <input type="text" class="form-control" id="description" placeholder="Description" required>
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Project Image</label>
-    <input type="text" class="form-control" id="image" placeholder="Image">
+    <input type="text" class="form-control" id="image" placeholder="Image" required>
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Project URL</label>
-    <input type="text" class="form-control" id="url" placeholder="URL">
+    <input type="text" class="form-control" id="url" placeholder="URL" required>
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Project Repository</label>
-    <input type="text" class="form-control" id="repository" placeholder="Repository">
+    <input type="text" class="form-control" id="repository" placeholder="Repository" required>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>                    
